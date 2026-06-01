@@ -3,46 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>講者陣容 | 2026 AI × ESG × 無人機跨域研討會</title>
+<title>講者與展演陣容 | 以數位孿生打造城市治理新模式研討會</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .speakers-filter { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
-  .filter-btn {
-    padding: 10px 22px; border-radius: 999px; border: 2px solid var(--fog);
-    background: white; color: var(--ink-soft); font-weight: 600; cursor: pointer;
-    font-size: 14px; transition: all .2s ease;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--deep-ocean); color: white; border-color: var(--deep-ocean);
-  }
   .speakers-all-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
   }
   .speaker-card-light {
-    background: white;
-    border: 1px solid var(--fog);
-    border-radius: var(--radius-md);
-    padding: 28px 24px;
-    text-align: center;
-    transition: all .3s ease;
+    background: white; border: 1px solid var(--fog); border-radius: var(--radius-md);
+    padding: 32px 24px; text-align: center; transition: all .3s ease;
   }
   .speaker-card-light:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--tech-green);
+    transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--tech-green);
   }
-  .speaker-card-light .speaker-avatar {
-    background: linear-gradient(135deg, var(--deep-ocean), var(--tech-green));
-    color: white;
+  .speaker-avatar {
+    width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: bold; margin: 0 auto 16px;
+    background: linear-gradient(135deg, var(--deep-ocean), var(--tech-green)); color: white;
   }
-  .speaker-card-light h4 { color: var(--deep-ocean); }
-  .speaker-card-light .speaker-title { color: var(--tech-green); }
-  .speaker-card-light .speaker-org { color: var(--ink-soft); }
-  .speaker-hidden { display: none; }
+  .speaker-card-light h4 { color: var(--deep-ocean); margin-bottom: 8px;}
+  .speaker-card-light .speaker-title { color: var(--tech-green); font-weight: 600; margin-bottom: 8px;}
+  .speaker-card-light .speaker-org { color: var(--ink-soft); font-size: 14px;}
 </style>
 </head>
 <body>
@@ -50,10 +33,10 @@
 <nav class="navbar">
   <div class="nav-wrap">
     <a href="index.html" class="nav-brand">
-      <div class="nav-brand-mark">AE</div>
+      <div class="nav-brand-mark">DT</div>
       <div class="nav-brand-text">
-        <div class="ja">海風・數據・翅膀</div>
-        <div class="en">AI × ESG × UAV 2026</div>
+        <div class="ja">數位孿生・城市治理</div>
+        <div class="en">Digital Twin × ESG × Resilience</div>
       </div>
     </a>
     <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
@@ -62,244 +45,70 @@
       <a href="agenda.html">議程</a>
       <a href="speakers.html">講者陣容</a>
       <a href="exhibition.html">展區導覽</a>
-      <a href="sponsors.html">贊助夥伴</a>
+      <a href="sponsors.html">合作夥伴</a>
       <a href="register.html" class="nav-cta">立即報名 <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </nav>
 
 <section class="page-banner">
-  <div class="breadcrumb">HOME / SPEAKERS</div>
-  <h1>產官學研跨域講者陣容</h1>
-  <p>30+ 位來自政府首長、產業領袖、學術前沿與研究機構的重量級講者，共同縫合下一個十年。</p>
+  <div class="breadcrumb">HOME / SPEAKERS & PARTNERS</div>
+  <h1>核心講者與專業展示單位</h1>
+  <p>整合產、官、研多方資源，由高雄市府政策定錨，並由頂尖企業帶來前沿技術展演。</p>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="speakers-filter" id="filter-bar">
-      <button class="filter-btn active" data-sector="all">全部 All</button>
-      <button class="filter-btn" data-sector="government">政府 Government</button>
-      <button class="filter-btn" data-sector="industry">產業 Industry</button>
-      <button class="filter-btn" data-sector="academia">學術 Academia</button>
-      <button class="filter-btn" data-sector="research">研究 Research</button>
-    </div>
-
-    <div class="speakers-all-grid" id="speakers-grid">
-      <!-- Government -->
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">市長</div>
-        <h4>高雄市長</h4>
-        <div class="speaker-title">開幕致詞 · Opening Remarks</div>
-        <div class="speaker-org">高雄市政府</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
-      </article>
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">經發</div>
-        <h4>經發局長</h4>
-        <div class="speaker-title">政策分享</div>
-        <div class="speaker-org">高雄市政府經發局</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
-      </article>
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">數發</div>
-        <h4>副署長</h4>
-        <div class="speaker-title">AI 政策</div>
-        <div class="speaker-org">數發部數位產業署</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
-      </article>
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">環部</div>
-        <h4>氣候變遷署代表</h4>
-        <div class="speaker-title">碳費與淨零路徑</div>
-        <div class="speaker-org">環境部</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
-      </article>
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">民航</div>
-        <h4>民航局代表</h4>
-        <div class="speaker-title">空域治理</div>
-        <div class="speaker-org">交通部民航局</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
-      </article>
-      <article class="speaker-card-light" data-sector="government">
-        <div class="speaker-avatar">消防</div>
-        <h4>消防局長</h4>
-        <div class="speaker-title">智慧消防個案</div>
-        <div class="speaker-org">高雄市消防局</div>
-        <span class="speaker-sector-tag sector-government">政府</span>
+    <div class="speakers-all-grid">
+      
+      <article class="speaker-card-light">
+        <div class="speaker-avatar">政</div>
+        <h4>高雄市經發局官員</h4>
+        <div class="speaker-title">智慧永續驅動城市前行</div>
+        <div class="speaker-org">高雄市政府官員(邀請中)</div>
       </article>
 
-      <!-- Industry -->
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">經緯</div>
-        <h4>產業代表</h4>
-        <div class="speaker-title">無人機解決方案</div>
-        <div class="speaker-org">經緯航太 Geosat</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">智飛</div>
-        <h4>產品總監</h4>
-        <div class="speaker-title">Edge AI × UAV</div>
-        <div class="speaker-org">智飛科技</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">雷虎</div>
-        <h4>CTO</h4>
-        <div class="speaker-title">工業級機隊</div>
-        <div class="speaker-org">雷虎科技</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">KPMG</div>
-        <h4>永續顧問主持</h4>
-        <div class="speaker-title">ESG 報告書</div>
-        <div class="speaker-org">KPMG 永續顧問</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">勤業</div>
-        <h4>風險總監</h4>
-        <div class="speaker-title">防漂綠治理</div>
-        <div class="speaker-org">勤業眾信</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">港務</div>
-        <h4>董事長</h4>
-        <div class="speaker-title">港口智慧減碳</div>
-        <div class="speaker-org">台灣港務公司</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">中鋼</div>
-        <h4>永續長</h4>
-        <div class="speaker-title">重工業減碳</div>
-        <div class="speaker-org">中國鋼鐵</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">沃旭</div>
-        <h4>台灣區經理</h4>
-        <div class="speaker-title">離岸風電巡檢</div>
-        <div class="speaker-org">沃旭能源</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">台電</div>
-        <h4>再生能源處代表</h4>
-        <div class="speaker-title">光電熱顯巡檢</div>
-        <div class="speaker-org">台灣電力公司</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
-      </article>
-      <article class="speaker-card-light" data-sector="industry">
-        <div class="speaker-avatar">長榮</div>
-        <h4>ESG 總監</h4>
-        <div class="speaker-title">航運供應鏈</div>
-        <div class="speaker-org">長榮海運</div>
-        <span class="speaker-sector-tag sector-industry">產業</span>
+      <article class="speaker-card-light">
+        <div class="speaker-avatar">網</div>
+        <h4>中華電信網路專家</h4>
+        <div class="speaker-title">網路韌性專題介紹</div>
+        <div class="speaker-org">中華電信網分行南營運處(邀請中)</div>
       </article>
 
-      <!-- Academia -->
-      <article class="speaker-card-light" data-sector="academia">
-        <div class="speaker-avatar">中山</div>
-        <h4>ESG 中心主任</h4>
-        <div class="speaker-title">AI 賦能永續</div>
-        <div class="speaker-org">國立中山大學</div>
-        <span class="speaker-sector-tag sector-academia">學術</span>
-      </article>
-      <article class="speaker-card-light" data-sector="academia">
-        <div class="speaker-avatar">成大</div>
-        <h4>航太系特聘教授</h4>
-        <div class="speaker-title">UAV 自主飛行</div>
-        <div class="speaker-org">國立成功大學</div>
-        <span class="speaker-sector-tag sector-academia">學術</span>
-      </article>
-      <article class="speaker-card-light" data-sector="academia">
-        <div class="speaker-avatar">高科</div>
-        <h4>無人機學程主任</h4>
-        <div class="speaker-title">跨域人才培育</div>
-        <div class="speaker-org">高雄科技大學</div>
-        <span class="speaker-sector-tag sector-academia">學術</span>
-      </article>
-      <article class="speaker-card-light" data-sector="academia">
-        <div class="speaker-avatar">台大</div>
-        <h4>風險社會中心主任</h4>
-        <div class="speaker-title">科技倫理</div>
-        <div class="speaker-org">國立台灣大學</div>
-        <span class="speaker-sector-tag sector-academia">學術</span>
-      </article>
-      <article class="speaker-card-light" data-sector="academia">
-        <div class="speaker-avatar">高大</div>
-        <h4>環工系教授</h4>
-        <div class="speaker-title">環境監測</div>
-        <div class="speaker-org">國立高雄大學</div>
-        <span class="speaker-sector-tag sector-academia">學術</span>
+      <article class="speaker-card-light">
+        <div class="speaker-avatar">藏</div>
+        <h4>藏識科技研發團隊</h4>
+        <div class="speaker-title">無人機模擬與數位孿生平台</div>
+        <div class="speaker-org">高雄在地 GIS 領導廠商</div>
       </article>
 
-      <!-- Research -->
-      <article class="speaker-card-light" data-sector="research">
-        <div class="speaker-avatar">工研</div>
-        <h4>IEK 首席分析師</h4>
-        <div class="speaker-title">全球產業趨勢</div>
-        <div class="speaker-org">工業技術研究院</div>
-        <span class="speaker-sector-tag sector-research">研究</span>
+      <article class="speaker-card-light">
+        <div class="speaker-avatar">旭</div>
+        <h4>旭翔動力科技代表</h4>
+        <div class="speaker-title">UAV 系統整合與智慧巡檢</div>
+        <div class="speaker-org">台南在地無人機產業鏈廠商</div>
       </article>
-      <article class="speaker-card-light" data-sector="research">
-        <div class="speaker-avatar">資策</div>
-        <h4>MIC 資深總監</h4>
-        <div class="speaker-title">AI 應用情報</div>
-        <div class="speaker-org">資策會</div>
-        <span class="speaker-sector-tag sector-research">研究</span>
+
+      <article class="speaker-card-light">
+        <div class="speaker-avatar">TL</div>
+        <h4>高雄 TL 研究單位</h4>
+        <div class="speaker-title">智慧海港數位孿生展示(邀請中)</div>
+        <div class="speaker-org">尖端研究單位</div>
       </article>
-      <article class="speaker-card-light" data-sector="research">
-        <div class="speaker-avatar">災防</div>
-        <h4>副主任</h4>
-        <div class="speaker-title">災防 UAV 應用</div>
-        <div class="speaker-org">國家災害防救科技中心</div>
-        <span class="speaker-sector-tag sector-research">研究</span>
-      </article>
-      <article class="speaker-card-light" data-sector="research">
-        <div class="speaker-avatar">綠能</div>
-        <h4>工研院綠能所副所長</h4>
-        <div class="speaker-title">淨零技術路徑</div>
-        <div class="speaker-org">工研院綠能所</div>
-        <span class="speaker-sector-tag sector-research">研究</span>
-      </article>
-      <article class="speaker-card-light" data-sector="research">
-        <div class="speaker-avatar">特生</div>
-        <h4>生物多樣性組長</h4>
-        <div class="speaker-title">無人機生態監測</div>
-        <div class="speaker-org">特有生物研究保育中心</div>
-        <span class="speaker-sector-tag sector-research">研究</span>
-      </article>
+
     </div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-    <div class="footer-bottom" style="border-top: 0; padding-top: 0;">
-      <div>© 2026 AI × ESG × UAV Symposium.</div>
-      <div>Designed with 🌊 in Kaohsiung</div>
+    <div class="footer-bottom">
+      <div>© 2026 高雄所產官學研研討會. All rights reserved.</div>
+      <div>Kaohsiung, Taiwan</div>
     </div>
   </div>
 </footer>
 
 <script src="js/common.js"></script>
-<script>
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const sector = btn.dataset.sector;
-    document.querySelectorAll('#speakers-grid > article').forEach(card => {
-      const show = sector === 'all' || card.dataset.sector === sector;
-      card.classList.toggle('speaker-hidden', !show);
-    });
-  });
-});
-</script>
 </body>
 </html>
