@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立即報名 | 2026 AI × ESG × 無人機跨域研討會</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-wrap">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-mark">AE</div>
+      <div class="nav-brand-text">
+        <div class="ja">海風・數據・翅膀</div>
+        <div class="en">AI × ESG × UAV 2026</div>
+      </div>
+    </a>
+    <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="index.html">首頁</a>
+      <a href="agenda.html">議程</a>
+      <a href="speakers.html">講者陣容</a>
+      <a href="exhibition.html">展區導覽</a>
+      <a href="sponsors.html">贊助夥伴</a>
+      <a href="register.html" class="nav-cta">立即報名 <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="breadcrumb">HOME / REGISTRATION</div>
+  <h1>立即報名</h1>
+  <p>僅限 150 席，採產官學研配額制。早鳥票 7/31 截止，學研憑證免費。</p>
+</section>
+
+<section class="section register-section">
+  <div class="container">
+    <div class="register-wrap">
+
+      <!-- Ticket Panel -->
+      <aside class="ticket-panel" id="ticket-panel">
+        <h3 style="margin-bottom: 16px; color: var(--deep-ocean); font-size: 20px;">
+          <i class="fa-solid fa-ticket" style="color: var(--tech-green);"></i> 票種選擇
+        </h3>
+
+        <label class="ticket-card" data-ticket="早鳥票">
+          <input type="radio" name="ticket" value="早鳥票" hidden>
+          <div class="ticket-head">
+            <h4>🎯 早鳥票</h4>
+            <div class="ticket-price">NT$ 2,800 <small>／位</small></div>
+          </div>
+          <p class="ticket-desc">7/31 前完成付款適用。限額 50 位。</p>
+          <ul>
+            <li>兩日全議程入場</li>
+            <li>午宴 × 2 + 茶敘 × 4</li>
+            <li>研討會資料袋</li>
+            <li>開幕晚宴需另加購</li>
+          </ul>
+        </label>
+
+        <label class="ticket-card selected" data-ticket="產業票">
+          <input type="radio" name="ticket" value="產業票" checked hidden>
+          <div class="ticket-head">
+            <h4>💼 產業標準票</h4>
+            <div class="ticket-price">NT$ 3,800 <small>／位</small></div>
+          </div>
+          <p class="ticket-desc">8/1 後標準價格，限額 60 位。</p>
+          <ul>
+            <li>兩日全議程入場</li>
+            <li>午宴 × 2 + 茶敘 × 4</li>
+            <li>開幕晚宴席位保留</li>
+            <li>研討會資料袋 + 紀念禮品</li>
+          </ul>
+        </label>
+
+        <label class="ticket-card" data-ticket="學研票(免費)">
+          <input type="radio" name="ticket" value="學研票(免費)" hidden>
+          <div class="ticket-head">
+            <h4>🎓 學研票</h4>
+            <div class="ticket-price">NT$ 0 <small>免費 · 限額 30</small></div>
+          </div>
+          <p class="ticket-desc">憑學生證/研究證明申請，需審核。</p>
+          <ul>
+            <li>兩日全議程入場</li>
+            <li>午宴 × 2 + 茶敘 × 4</li>
+            <li>可投稿學研海報展</li>
+          </ul>
+        </label>
+      </aside>
+
+      <!-- Form -->
+      <div class="form-card">
+        <h2>報名資料填寫</h2>
+        <p>請完整填寫以下欄位，* 為必填。送出後將於 3 個工作天內寄發確認信與繳費資訊。</p>
+
+        <form id="register-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">姓名<span class="req">*</span></label>
+              <input type="text" class="form-input" name="name" required placeholder="王小明">
+            </div>
+            <div class="form-group">
+              <label class="form-label">職稱<span class="req">*</span></label>
+              <input type="text" class="form-input" name="title" required placeholder="資深 Java 工程師">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">服務單位<span class="req">*</span></label>
+            <input type="text" class="form-input" name="organization" required placeholder="XX 科技股份有限公司">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Email<span class="req">*</span></label>
+              <input type="email" class="form-input" name="email" required placeholder="you@example.com">
+              <div class="form-help">確認信與電子票券將寄送至此信箱</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">聯絡電話<span class="req">*</span></label>
+              <input type="tel" class="form-input" name="phone" required placeholder="0912-345-678">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">參與身分<span class="req">*</span></label>
+            <div class="chip-group" id="sector-chips">
+              <label class="chip"><input type="radio" name="sector" value="產業界" required> 🏢 產業界</label>
+              <label class="chip"><input type="radio" name="sector" value="政府機關"> 🏛️ 政府機關</label>
+              <label class="chip"><input type="radio" name="sector" value="學術界"> 🎓 學術界</label>
+              <label class="chip"><input type="radio" name="sector" value="研究法人"> 🔬 研究法人</label>
+              <label class="chip"><input type="radio" name="sector" value="媒體"> 📰 媒體</label>
+              <label class="chip"><input type="radio" name="sector" value="其他"> 其他</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">出席日期<span class="req">*</span></label>
+            <label class="check-row">
+              <input type="checkbox" name="attend_day1" checked>
+              <div>
+                <strong>Day 1 · 9/16（三）</strong>
+                <span>開幕典禮・政策高度 × 技術深度｜含午宴</span>
+              </div>
+            </label>
+            <label class="check-row">
+              <input type="checkbox" name="attend_day2" checked>
+              <div>
+                <strong>Day 2 · 9/17（四）</strong>
+                <span>在地實踐 × 未來共創・圓桌高峰｜含午宴</span>
+              </div>
+            </label>
+            <label class="check-row">
+              <input type="checkbox" name="attend_gala">
+              <div>
+                <strong>🥂 開幕晚宴 · 9/16 18:30</strong>
+                <span>香蕉碼頭 2F · 港都夜景伴宴（早鳥票需加購 NT$1,200）</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">最感興趣的議題（可複選）</label>
+            <div class="chip-group" id="interest-chips">
+              <label class="chip"><input type="checkbox" name="interests" value="AI 碳盤查"> AI 碳盤查</label>
+              <label class="chip"><input type="checkbox" name="interests" value="無人機巡檢"> 無人機巡檢</label>
+              <label class="chip"><input type="checkbox" name="interests" value="空域治理"> 空域治理</label>
+              <label class="chip"><input type="checkbox" name="interests" value="Edge AI"> Edge AI</label>
+              <label class="chip"><input type="checkbox" name="interests" value="防漂綠"> 防漂綠</label>
+              <label class="chip"><input type="checkbox" name="interests" value="災防應用"> 災防應用</label>
+              <label class="chip"><input type="checkbox" name="interests" value="港口減碳"> 港口減碳</label>
+              <label class="chip"><input type="checkbox" name="interests" value="智慧農業"> 智慧農業</label>
+              <label class="chip"><input type="checkbox" name="interests" value="人才教育"> 人才教育</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">飲食需求</label>
+            <select class="form-select" name="dietary">
+              <option value="葷食">葷食（無特殊需求）</option>
+              <option value="素食">素食</option>
+              <option value="蛋奶素">蛋奶素</option>
+              <option value="其他">其他（請於備註說明）</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">備註與特殊需求</label>
+            <textarea class="form-textarea" name="remarks" placeholder="例如：輪椅座位、停車需求、發票抬頭等..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="check-row" style="background: rgba(0,229,160,0.06);">
+              <input type="checkbox" id="agree" required>
+              <div>
+                <strong>我已閱讀並同意個資蒐集聲明</strong>
+                <span>本次報名資料僅用於活動通知、票券發送與後續成果追蹤，不作其他商業用途。</span>
+              </div>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="padding: 18px 28px; font-size: 16px;">
+            <i class="fa-solid fa-paper-plane"></i> 送出報名
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top: 0;">
+      <div>© 2026 AI × ESG × UAV Symposium.</div>
+      <div>Designed with 🌊 in Kaohsiung</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+// Ticket selection
+let currentTicket = '產業票';
+document.querySelectorAll('.ticket-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.ticket-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    card.querySelector('input[type=radio]').checked = true;
+    currentTicket = card.dataset.ticket;
+  });
+});
+
+// Chip interactions
+function bindChips(container, single = false) {
+  container.querySelectorAll('.chip').forEach(chip => {
+    const input = chip.querySelector('input');
+    input.addEventListener('change', () => {
+      if (single) {
+        container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        if (input.checked) chip.classList.add('active');
+      } else {
+        chip.classList.toggle('active', input.checked);
+      }
+    });
+  });
+}
+bindChips(document.getElementById('sector-chips'), true);
+bindChips(document.getElementById('interest-chips'), false);
+
+// Form submit
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const fd = new FormData(form);
+
+  // Validation
+  const required = ['name', 'title', 'organization', 'email', 'phone', 'sector'];
+  for (const r of required) {
+    if (!fd.get(r)) {
+      showToast(`請填寫必填欄位：${form.querySelector(`[name=${r}]`).closest('.form-group').querySelector('.form-label').textContent.replace('*','').trim()}`, 'error');
+      return;
+    }
+  }
+  if (!document.getElementById('agree').checked) {
+    showToast('請勾選同意個資聲明', 'error');
+    return;
+  }
+
+  const interests = Array.from(form.querySelectorAll('input[name=interests]:checked')).map(i => i.value);
+
+  const payload = {
+    name: fd.get('name'),
+    title: fd.get('title'),
+    organization: fd.get('organization'),
+    email: fd.get('email'),
+    phone: fd.get('phone'),
+    sector: fd.get('sector'),
+    ticket_type: currentTicket,
+    dietary: fd.get('dietary') || '葷食',
+    attend_day1: form.querySelector('[name=attend_day1]').checked,
+    attend_day2: form.querySelector('[name=attend_day2]').checked,
+    attend_gala: form.querySelector('[name=attend_gala]').checked,
+    interests: interests,
+    remarks: fd.get('remarks') || '',
+    status: '待繳費',
+    submitted_at: Date.now()
+  };
+
+  const btn = form.querySelector('button[type=submit]');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 送出中...';
+
+  try {
+    const res = await fetch('tables/registrations', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('提交失敗');
+    const data = await res.json();
+    showToast('🎉 報名成功！確認信將於 3 個工作天內寄達', 'success');
+    form.reset();
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 2500);
+  } catch (err) {
+    console.error(err);
+    showToast('報名失敗，請稍後再試或聯繫主辦單位', 'error');
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 送出報名';
+  }
+});
+</script>
+</body>
+</html>
