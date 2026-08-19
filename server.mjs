@@ -5,23 +5,24 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import ExcelJS from "exceljs";
+import { createClient } from "@supabase/supabase-js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 loadDotEnv();
 const siteRoot = path.resolve(process.env.PUBLIC_DIR || here);
-const dataRoot = path.resolve(process.env.DATA_DIR || path.join(here, "private-data"));
 const port = Number(process.env.PORT || 8080);
 const publicOrigin = process.env.PUBLIC_ORIGIN || `http://localhost:${port}`;
 const adminToken = process.env.ADMIN_TOKEN;
 const encryptionKeyHex = process.env.REGISTRATION_ENCRYPTION_KEY;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!adminToken || !/^[0-9a-f]{64}$/i.test(encryptionKeyHex || "")) {
-  throw new Error("Set ADMIN_TOKEN and REGISTRATION_ENCRYPTION_KEY (64 hex characters) before starting.");
+if (!adminToken || !/^[0-9a-f]{64}$/i.test(encryptionKeyHex || "") || !supabaseUrl || !supabaseServiceKey) {
+  throw new Error("Set ADMIN_TOKEN, REGISTRATION_ENCRYPTION_KEY, SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY before starting.");
 }
 
 const encryptionKey = Buffer.from(encryptionKeyHex, "hex");
-const privateFile = path.join(dataRoot, "registrations.enc.json");
-const exportFile = path.join(dataRoot, "registrations.xlsx");
+const supabase = createClient(supabaseUrl, supabaseServiceKey, { auth: { persistSession: false, autoRefreshToken: false } });
 const allowedMethods = new Set(["GET", "HEAD", "POST"]);
 const rateMap = new Map();
 let writeQueue = Promise.resolve();
@@ -104,34 +105,29 @@ async function readBody(req) {
   return Buffer.concat(chunks).toString("utf8");
 }
 
-async function readEncryptedRows() {
-  try {
-    const envelope = JSON.parse(await fs.readFile(privateFile, "utf8"));
-    const decipher = crypto.createDecipheriv("aes-256-gcm", encryptionKey, Buffer.from(envelope.iv, "base64"));
-    decipher.setAuthTag(Buffer.from(envelope.tag, "base64"));
-    const plain = Buffer.concat([decipher.update(Buffer.from(envelope.data, "base64")), decipher.final()]);
-    return JSON.parse(plain.toString("utf8"));
-  } catch (error) {
-    if (error.code === "ENOENT") return [];
-    throw error;
-  }
-}
-
-async function writeEncryptedRows(rows) {
-  await fs.mkdir(dataRoot, { recursive: true });
+function encryptPayload(value) {
   const iv = crypto.randomBytes(12);
   const cipher = crypto.createCipheriv("aes-256-gcm", encryptionKey, iv);
-  const encrypted = Buffer.concat([cipher.update(JSON.stringify(rows), "utf8"), cipher.final()]);
-  const envelope = {
-    version: 1,
-    algorithm: "aes-256-gcm",
+  const encrypted = Buffer.concat([cipher.update(JSON.stringify(value), "utf8"), cipher.final()]);
+  return JSON.stringify({
+    version: 1, algorithm: "aes-256-gcm",
     iv: iv.toString("base64"),
     tag: cipher.getAuthTag().toString("base64"),
     data: encrypted.toString("base64")
-  };
-  const tempFile = privateFile + ".tmp";
-  await fs.writeFile(tempFile, JSON.stringify(envelope), { mode: 0o600 });
-  await fs.rename(tempFile, privateFile);
+  });
+}
+
+function decryptPayload(envelopeText) {
+  const envelope = JSON.parse(envelopeText);
+  const decipher = crypto.createDecipheriv("aes-256-gcm", encryptionKey, Buffer.from(envelope.iv, "base64"));
+  decipher.setAuthTag(Buffer.from(envelope.tag, "base64"));
+  return JSON.parse(Buffer.concat([decipher.update(Buffer.from(envelope.data, "base64")), decipher.final()]).toString("utf8"));
+}
+
+async function readRows() {
+  const { data, error } = await supabase.from("registrations").select("created_at,payload").order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data || []).map(row => ({ ...decryptPayload(row.payload), createdAt: row.created_at }));
 }
 
 function withWriteLock(task) {
@@ -166,9 +162,7 @@ async function exportWorkbook(rows) {
   sheet.eachRow(row => { row.alignment = { vertical: "top", wrapText: true }; });
   sheet.getColumn("createdAt").numFmt = "yyyy-mm-dd hh:mm";
   sheet.autoFilter = { from: "A1", to: "I" + Math.max(1, rows.length + 1) };
-  await fs.mkdir(dataRoot, { recursive: true });
-  await workbook.xlsx.writeFile(exportFile);
-  return exportFile;
+  return Buffer.from(await workbook.xlsx.writeBuffer());
 }
 
 function validateRegistration(input) {
@@ -204,12 +198,10 @@ async function handleRegistration(req, res) {
   const result = validateRegistration(input);
   if (result.error) return sendJson(res, 400, { ok: false, message: result.error });
   await withWriteLock(async () => {
-    const rows = await readEncryptedRows();
-    const duplicate = rows.some(row => row.email === result.value.email);
-    if (duplicate) throw new Error("duplicate");
-    rows.push({ ...result.value, createdAt: new Date().toISOString() });
-    await writeEncryptedRows(rows);
-    await exportWorkbook(rows);
+    const emailHash = crypto.createHash("sha256").update(result.value.email).digest("hex");
+    const { error } = await supabase.from("registrations").insert({ email_hash: emailHash, payload: encryptPayload(result.value) });
+    if (error?.code === "23505") throw new Error("duplicate");
+    if (error) throw error;
   }).catch(error => {
     if (error.message === "duplicate") return sendJson(res, 409, { ok: false, message: "此 Email 已完成報名，請勿重複送出。" });
     throw error;
@@ -249,9 +241,8 @@ const server = http.createServer(async (req, res) => {
     if (req.url?.split("?")[0] === "/admin/export.xlsx" && req.method === "GET") {
       const token = req.headers["x-admin-token"];
       if (token !== adminToken) return sendJson(res, 401, { ok: false, message: "Unauthorized" });
-      const rows = await readEncryptedRows();
-      await exportWorkbook(rows);
-      const file = await fs.readFile(exportFile);
+      const rows = await readRows();
+      const file = await exportWorkbook(rows);
       securityHeaders(res);
       res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
       res.setHeader("Content-Disposition", "attachment; filename=registrations.xlsx");
@@ -266,5 +257,3 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(port, "0.0.0.0", () => console.log(`Registration server listening on ${publicOrigin}`));
-
-
