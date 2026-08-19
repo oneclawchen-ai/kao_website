@@ -1,0 +1,8 @@
+{
+  "name": "secure-registration-api",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.mjs" },
+  "dependencies": { "exceljs": "^4.4.0" }
+}

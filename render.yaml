@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: secure-registration-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /register.html
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUBLIC_ORIGIN
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: REGISTRATION_ENCRYPTION_KEY
+        sync: false
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: registration-data
+      mountPath: /var/data
+      sizeGB: 1
