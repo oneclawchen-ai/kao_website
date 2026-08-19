@@ -1,8 +1,17 @@
 {
   "name": "secure-registration-api",
+  "version": "1.0.0",
+  "description": "Secure registration API with Supabase storage and Excel export",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
-  "scripts": { "start": "node server.mjs" },
-  "dependencies": { "exceljs": "^4.4.0" }
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "exceljs": "^4.4.0"
+  }
 }
