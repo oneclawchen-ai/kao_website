@@ -127,7 +127,11 @@ function decryptPayload(envelopeText) {
 async function readRows() {
   const { data, error } = await supabase.from("registrations").select("created_at,payload").order("created_at", { ascending: true });
   if (error) throw error;
-  return (data || []).map(row => ({ ...decryptPayload(row.payload), createdAt: row.created_at }));
+  return (data || []).map(row => ({
+    ...decryptPayload(row.payload),
+    // Supabase timestamptz is stored in UTC; Excel receives the Taiwan wall-clock time.
+    createdAt: new Date(new Date(row.created_at).getTime() + 8 * 60 * 60 * 1000)
+  }));
 }
 
 function withWriteLock(task) {
@@ -166,7 +170,15 @@ async function exportWorkbook(rows) {
 }
 
 function validateRegistration(input) {
-  const ticket = cleanText(input.ticket, 40);
+  const rawTicket = cleanText(input.ticket, 40);
+  const ticketAliases = {
+    "內部同仁": "內部同仁票",
+    "內部同仁票": "內部同仁票",
+    "企業／研究夥伴": "企業／研究夥伴",
+    "企業/研究夥伴": "企業／研究夥伴",
+    "企業夥伴": "企業／研究夥伴"
+  };
+  const ticket = ticketAliases[rawTicket] || rawTicket;
   const name = cleanText(input.name, 80);
   const title = cleanText(input.title, 100);
   const organization = cleanText(input.organization, 160);
