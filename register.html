@@ -1,45 +1,145 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活動報名｜構築韌性永續城市研討會</title>
+<meta name="description" content="報名參加 2026 年 10 月 29 日構築韌性永續城市研討會。">
+<meta name="registration-api" content="https://kao-website.onrender.com">
 
-  <title>活動報名｜構築韌性永續城市研討會</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
 
-  <meta
-    name="description"
-    content="報名參加 2026 年 10 月 29 日構築韌性永續城市研討會。"
-  >
+<style>
+.ticket-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+}
 
-  <!-- 請將此網址改成你的 Render API 網址 -->
-  <meta
-    name="registration-api"
-    content="https://kao-website.onrender.com"
-  >
+.ticket-panel > h3 {
+  margin: 0 0 4px !important;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+.ticket-card {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #dce7ec !important;
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
-    rel="stylesheet"
-  >
+.ticket-card:hover {
+  border-color: var(--tech-green) !important;
+  transform: translateY(-2px);
+}
 
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"
-  >
+.ticket-card.selected {
+  border: 2px solid var(--tech-green) !important;
+  background: rgba(0, 229, 160, 0.06) !important;
+  box-shadow: 0 10px 24px rgba(10, 37, 64, 0.08) !important;
+}
 
-  <link rel="stylesheet" href="css/style.css">
+.ticket-card input[type="radio"] {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.ticket-head {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+}
+
+.ticket-head h4 {
+  flex: 1 1 180px !important;
+  margin: 0 !important;
+  color: var(--deep-ocean) !important;
+  font-size: 18px !important;
+  line-height: 1.45 !important;
+}
+
+.ticket-price {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  color: var(--tech-green) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+  white-space: nowrap !important;
+}
+
+.ticket-price small {
+  color: var(--ink-soft) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.ticket-desc {
+  margin: 14px 0 0 !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.7 !important;
+}
+
+.ticket-card ul {
+  margin: 14px 0 0 !important;
+  padding: 0 0 0 22px !important;
+  color: var(--ink-soft) !important;
+}
+
+.ticket-card li {
+  margin: 8px 0 !important;
+  line-height: 1.55 !important;
+}
+
+.ticket-card li::marker {
+  color: var(--tech-green) !important;
+}
+
+.ticket-panel > p {
+  margin: 0 !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 640px) {
+  .ticket-panel {
+    padding: 18px !important;
+  }
+
+  .ticket-head {
+    display: block !important;
+  }
+
+  .ticket-price {
+    margin-top: 8px !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <nav class="navbar">
   <div class="nav-wrap">
-
     <a href="index.html" class="nav-brand" aria-label="回到首頁">
       <div class="nav-brand-mark">RS</div>
-
       <div class="nav-brand-text">
         <div class="ja">韌性永續城市研討會</div>
         <div class="en">AI × Digital Twin × Resilience</div>
@@ -56,21 +156,16 @@
       <a href="speakers.html">講者陣容</a>
       <a href="exhibition.html">展示導覽</a>
       <a href="sponsors.html">合作夥伴</a>
-
       <a href="register.html" class="nav-cta">
-        立即報名
-        <i class="fa-solid fa-arrow-right"></i>
+        立即報名 <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
-
   </div>
 </nav>
 
 <section class="page-banner">
   <div class="breadcrumb">HOME / REGISTRATION</div>
-
   <h1>報名參與研討會</h1>
-
   <p>
     活動日期為 2026 年 10 月 29 日（四）09:30–17:00，
     歡迎同仁、企業、研究與技術夥伴參與。
@@ -79,44 +174,21 @@
 
 <section class="section register-section">
   <div class="container">
-
     <div class="register-wrap">
 
       <aside class="ticket-panel">
-
-        <h3
-          style="
-            margin-bottom:16px;
-            color:var(--deep-ocean);
-            font-size:20px;
-          "
-        >
-          <i
-            class="fa-solid fa-ticket"
-            style="color:var(--tech-green);"
-          ></i>
-
+        <h3 style="margin-bottom:16px;color:var(--deep-ocean);font-size:20px;">
+          <i class="fa-solid fa-ticket" style="color:var(--tech-green);"></i>
           參與身分選擇
         </h3>
 
-        <label
-          class="ticket-card selected"
-          data-ticket="內部同仁票"
-        >
-          <input
-            type="radio"
-            name="ticket"
-            value="內部同仁票"
-            checked
-            hidden
-          >
+        <label class="ticket-card selected" data-ticket="內部同仁票">
+          <input type="radio" name="ticket" value="內部同仁票" checked hidden>
 
           <div class="ticket-head">
             <h4>🏢 南部同仁報名</h4>
-
             <div class="ticket-price">
-              內部交流
-              <small>／免費</small>
+              內部交流 <small>／免費</small>
             </div>
           </div>
 
@@ -131,23 +203,13 @@
           </ul>
         </label>
 
-        <label
-          class="ticket-card"
-          data-ticket="企業／研究夥伴"
-        >
-          <input
-            type="radio"
-            name="ticket"
-            value="企業／研究夥伴"
-            hidden
-          >
+        <label class="ticket-card" data-ticket="企業／研究夥伴">
+          <input type="radio" name="ticket" value="企業／研究夥伴" hidden>
 
           <div class="ticket-head">
             <h4>💼 企業／研究夥伴</h4>
-
             <div class="ticket-price">
-              交流報名
-              <small>／審核制</small>
+              交流報名 <small>／審核制</small>
             </div>
           </div>
 
@@ -162,42 +224,27 @@
           </ul>
         </label>
 
-        <p
-          style="
-            font-size:13px;
-            color:var(--ink-soft);
-            margin-top:16px;
-          "
-        >
-          正式報名資格、名額、場地與行前通知，
-          以主辦單位後續公告為準。
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:16px;">
+          正式報名資格、名額、場地與行前通知，以主辦單位後續公告為準。
         </p>
-
       </aside>
 
       <div class="form-card">
-
         <h2>報名資料填寫</h2>
-
-        <p>
-          請填寫以下資訊，方便安排報到、餐點與活動通知。
-        </p>
+        <p>請填寫以下資訊，方便安排報到、餐點與活動通知。</p>
 
         <form id="register-form" novalidate>
 
           <div class="form-row">
-
             <div class="form-group">
               <label class="form-label">
                 姓名<span class="req">*</span>
               </label>
-
               <input
                 type="text"
                 class="form-input"
                 name="name"
                 required
-                maxlength="80"
                 placeholder="請填寫姓名"
               >
             </div>
@@ -206,47 +253,39 @@
               <label class="form-label">
                 職稱<span class="req">*</span>
               </label>
-
               <input
                 type="text"
                 class="form-input"
                 name="title"
                 required
-                maxlength="100"
                 placeholder="您的職稱"
               >
             </div>
-
           </div>
 
           <div class="form-group">
             <label class="form-label">
               所屬單位／企業名稱<span class="req">*</span>
             </label>
-
             <input
               type="text"
               class="form-input"
               name="organization"
               required
-              maxlength="160"
               placeholder="請填寫單位名稱"
             >
           </div>
 
           <div class="form-row">
-
             <div class="form-group">
               <label class="form-label">
                 Email<span class="req">*</span>
               </label>
-
               <input
                 type="email"
                 class="form-input"
                 name="email"
                 required
-                maxlength="254"
                 placeholder="報名通知信箱"
               >
             </div>
@@ -255,17 +294,14 @@
               <label class="form-label">
                 聯絡電話<span class="req">*</span>
               </label>
-
               <input
                 type="tel"
                 class="form-input"
                 name="phone"
                 required
-                maxlength="40"
                 placeholder="手機或市話"
               >
             </div>
-
           </div>
 
           <div class="form-group">
@@ -274,107 +310,58 @@
             </label>
 
             <div class="chip-group" id="interest-chips">
-
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="數位孿生治理"
-                >
+                <input type="checkbox" name="interests" value="數位孿生治理">
                 數位孿生治理
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="AI 與 ESG"
-                >
+                <input type="checkbox" name="interests" value="AI 與 ESG">
                 AI 與 ESG
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="無人機 AI 視覺"
-                >
+                <input type="checkbox" name="interests" value="無人機 AI 視覺">
                 無人機 AI 視覺
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="網路韌性"
-                >
+                <input type="checkbox" name="interests" value="網路韌性">
                 網路韌性
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="衛星通訊"
-                >
+                <input type="checkbox" name="interests" value="衛星通訊">
                 衛星通訊
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="VR 模擬"
-                >
+                <input type="checkbox" name="interests" value="VR 模擬">
                 VR 模擬
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="智慧巡檢"
-                >
+                <input type="checkbox" name="interests" value="智慧巡檢">
                 智慧巡檢
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="超擬真建模"
-                >
+                <input type="checkbox" name="interests" value="超擬真建模">
                 超擬真建模
               </label>
 
               <label class="chip">
-                <input
-                  type="checkbox"
-                  name="interests"
-                  value="ESG 與淨零"
-                >
+                <input type="checkbox" name="interests" value="ESG 與淨零">
                 ESG 與淨零
               </label>
-
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label">
-              午餐需求
-            </label>
-
-            <select
-              class="form-select"
-              name="dietary"
-            >
-              <option value="葷食">
-                葷餐盒（無特殊需求）
-              </option>
-
-              <option value="素食">
-                素食餐盒
-              </option>
+            <label class="form-label">午餐需求</label>
+            <select class="form-select" name="dietary">
+              <option value="葷食">葷餐盒（無特殊需求）</option>
+              <option value="素食">素食餐盒</option>
             </select>
           </div>
 
@@ -383,20 +370,12 @@
               class="check-row"
               style="background:rgba(0,229,160,0.06);"
             >
-              <input
-                type="checkbox"
-                id="agree"
-                required
-              >
+              <input type="checkbox" id="agree" required>
 
               <div>
-                <strong>
-                  我已確認並同意提供報名資訊
-                </strong>
-
+                <strong>我已確認並同意提供報名資訊</strong>
                 <span>
-                  資料僅供活動報名、身分識別、
-                  餐點與行前通知使用。
+                  資料僅供活動報名、身分識別、餐點與行前通知使用。
                 </span>
               </div>
             </label>
@@ -410,24 +389,15 @@
             <i class="fa-solid fa-paper-plane"></i>
             送出報名
           </button>
-
         </form>
 
-        <p
-          style="
-            margin-top:16px;
-            font-size:13px;
-            color:var(--ink-soft);
-          "
-        >
+        <p style="margin-top:16px;font-size:13px;color:var(--ink-soft);">
           資料會送至活動報名伺服器並加密保存；
           正式報名結果與通知請依主辦單位公告辦理。
         </p>
-
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -436,138 +406,105 @@ let currentTicket = '內部同仁票';
 
 document.querySelectorAll('.ticket-card').forEach(card => {
   card.addEventListener('click', () => {
-    document
-      .querySelectorAll('.ticket-card')
-      .forEach(item => item.classList.remove('selected'));
+    document.querySelectorAll('.ticket-card').forEach(item => {
+      item.classList.remove('selected');
+    });
 
     card.classList.add('selected');
-
-    card.querySelector(
-      'input[type=radio]'
-    ).checked = true;
-
+    card.querySelector('input[type=radio]').checked = true;
     currentTicket = card.dataset.ticket;
   });
 });
 
-document
-  .querySelectorAll('#interest-chips .chip input')
-  .forEach(input => {
-    input.addEventListener('change', () => {
-      input
-        .closest('.chip')
-        .classList
-        .toggle('active', input.checked);
-    });
+document.querySelectorAll('#interest-chips .chip input').forEach(input => {
+  input.addEventListener('change', () => {
+    input.closest('.chip').classList.toggle('active', input.checked);
   });
+});
 
-document
-  .getElementById('register-form')
-  .addEventListener('submit', async event => {
-    event.preventDefault();
+document.getElementById('register-form').addEventListener('submit', async event => {
+  event.preventDefault();
 
-    const form = event.currentTarget;
-    const button = form.querySelector(
-      'button[type=submit]'
-    );
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type=submit]');
 
-    const interests = [
-      ...form.querySelectorAll(
-        'input[name="interests"]:checked'
-      )
-    ].map(input => input.value);
+  const interests = [
+    ...form.querySelectorAll('input[name="interests"]:checked')
+  ].map(input => input.value);
 
-    const payload = {
-      ticket: currentTicket,
-      name: form.elements.name.value.trim(),
-      title: form.elements.title.value.trim(),
-      organization: form.elements.organization.value.trim(),
-      email: form.elements.email.value.trim(),
-      phone: form.elements.phone.value.trim(),
-      interests,
-      dietary: form.elements.dietary.value,
-      website: ''
-    };
+  const payload = {
+    ticket: currentTicket,
+    name: form.elements.name.value,
+    title: form.elements.title.value,
+    organization: form.elements.organization.value,
+    email: form.elements.email.value,
+    phone: form.elements.phone.value,
+    interests,
+    dietary: form.elements.dietary.value,
+    website: ''
+  };
 
-    button.disabled = true;
+  button.disabled = true;
+  button.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> 傳送中…';
 
-    button.innerHTML =
-      '<i class="fa-solid fa-spinner fa-spin"></i> 傳送中…';
+  try {
+    const apiBase = document
+      .querySelector('meta[name="registration-api"]')
+      .content
+      .trim()
+      .replace(/\/$/, '');
 
-    try {
-      const apiMeta = document.querySelector(
-        'meta[name="registration-api"]'
-      );
-
-      const apiBase = apiMeta
-        ? apiMeta.content.trim().replace(/\/$/, '')
-        : '';
-
-      if (
-        !apiBase ||
-        apiBase.includes('YOUR-RENDER-SERVICE')
-      ) {
-        throw new Error(
-          '請先在 register.html 設定 Render API 網址。'
-        );
-      }
-
-      const response = await fetch(
-        `${apiBase}/api/registrations`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          },
-          body: JSON.stringify(payload)
-        }
-      );
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          result.message || '送出失敗，請稍後再試。'
-        );
-      }
-
-      alert(result.message);
-
-      form.reset();
-
-      document
-        .querySelectorAll('.ticket-card')
-        .forEach(item => item.classList.remove('selected'));
-
-      document
-        .querySelector('.ticket-card')
-        .classList.add('selected');
-
-      currentTicket = '內部同仁票';
-
-    } catch (error) {
-      alert(error.message);
-
-    } finally {
-      button.disabled = false;
-
-      button.innerHTML =
-        '<i class="fa-solid fa-paper-plane"></i> 送出報名';
+    if (!apiBase) {
+      throw new Error('請先在 register.html 設定後端 API 網址。');
     }
-  });
+
+    const response = await fetch(`${apiBase}/api/registrations`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || '送出失敗，請稍後再試。');
+    }
+
+    alert(result.message);
+
+    form.reset();
+
+    currentTicket = '內部同仁票';
+
+    document.querySelectorAll('.ticket-card').forEach(item => {
+      item.classList.remove('selected');
+    });
+
+    document.querySelector('.ticket-card').classList.add('selected');
+
+    document.querySelectorAll('#interest-chips .chip').forEach(chip => {
+      chip.classList.remove('active');
+    });
+
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    button.disabled = false;
+    button.innerHTML =
+      '<i class="fa-solid fa-paper-plane"></i> 送出報名';
+  }
+});
 </script>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-bottom">
-      <div>
-        © 2026 構築韌性永續城市研討會
-      </div>
-
-      <div>
-        活動資訊以正式公告為準
-      </div>
+      <div>© 2026 構築韌性永續城市研討會</div>
+      <div>活動資訊以正式公告為準</div>
     </div>
   </div>
 </footer>
