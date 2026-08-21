@@ -10,7 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
-</head>
+<style>
+.nav-brand-logo {
+  width: 44px;
+  height: 44px;
+  margin-left: 8px;
+  flex: 0 0 44px;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+@media (max-width: 640px) {
+  .nav-brand-logo {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+</style></head>
 
 <body>
 
@@ -22,6 +39,7 @@
         <div class="ja">韌性永續城市研討會</div>
         <div class="en">AI × Digital Twin × Resilience</div>
       </div>
+      <img class="nav-brand-logo" src="images/logo.png" alt="活動 Logo" onerror="this.style.display='none';">
     </a>
 
     <button class="nav-toggle" aria-label="開啟選單">
@@ -417,6 +435,7 @@
               AI × Digital Twin × Resilience
             </div>
           </div>
+          <img class="nav-brand-logo" src="images/logo.png" alt="活動 Logo" onerror="this.style.display='none';">
         </div>
 
         <p>
@@ -472,3 +491,5 @@
 <script src="js/common.js"></script>
 </body>
 </html>
+
+
