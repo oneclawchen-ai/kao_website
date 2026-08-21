@@ -132,19 +132,30 @@
   }
 }
 </style>
-</head>
+<style>
+.nav-brand-logo {
+  width: 120px;
+  height: 52px;
+  margin-left: 12px;
+  flex: 0 0 120px;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+@media (max-width: 640px) {
+  .nav-brand-logo {
+    width: 90px;
+    height: 42px;
+    flex-basis: 90px;
+  }
+}
+</style></head>
 
 <body>
 
 <nav class="navbar">
   <div class="nav-wrap">
-    <a href="index.html" class="nav-brand" aria-label="回到首頁">
-      <div class="nav-brand-mark">RS</div>
-      <div class="nav-brand-text">
-        <div class="ja">韌性永續城市研討會</div>
-        <div class="en">AI × Digital Twin × Resilience</div>
-      </div>
-    </a>
+    <a href="index.html" class="nav-brand" aria-label="回到首頁"><div class="nav-brand-mark">RS</div><div class="nav-brand-text"><div class="ja">韌性永續城市研討會</div><div class="en">AI × Digital Twin × Resilience</div></div><img class="nav-brand-logo" src="images/logo.png" alt="活動 Logo" onerror="this.style.display='none';"></a>
 
     <button class="nav-toggle" aria-label="開啟選單">
       <i class="fa-solid fa-bars"></i>
@@ -513,3 +524,7 @@ document.getElementById('register-form').addEventListener('submit', async event 
 
 </body>
 </html>
+
+
+
+
