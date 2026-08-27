@@ -77,6 +77,36 @@
   }
 }
 </style>
+  <style>
+.site-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px auto;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.site-counter iframe {
+  width: 90px;
+  height: 32px;
+  border: 0;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+@media (max-width: 640px) {
+  .site-counter {
+    font-size: 14px;
+  }
+
+  .site-counter iframe {
+    width: 80px;
+    height: 30px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -625,8 +655,13 @@
 
 <script src="js/common.js"></script>
 <div class="site-counter">
-  網站瀏覽人次：
-  <span id="visitor-count">統計中...</span>
+  <span>網站累計瀏覽人次：</span>
+
+  <iframe
+    src="https://onechen.goatcounter.com/counter/TOTAL.html?no_branding=1"
+    title="網站累計瀏覽人次"
+    loading="eager">
+  </iframe>
 </div>
 
 <script
