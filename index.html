@@ -24,7 +24,19 @@
 >
 
 <link rel="stylesheet" href="css/style.css">
+<style>
+.site-counter {
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-align: center;
+}
 
+#visitor-count {
+  color: var(--tech-green);
+  font-weight: 800;
+}
+</style>
 <style>
 .hero {
   background-image:
@@ -612,6 +624,40 @@
 </footer>
 
 <script src="js/common.js"></script>
+<div class="site-counter">
+  網站瀏覽人次：
+  <span id="visitor-count">統計中...</span>
+</div>
 
+<script
+  data-goatcounter="https://你的代碼.goatcounter.com/count"
+  async
+  src="https://gc.zgo.at/count.js">
+</script>
+
+<script>
+(function () {
+  const timer = setInterval(function () {
+    if (
+      window.goatcounter &&
+      typeof window.goatcounter.visit_count === "function"
+    ) {
+      clearInterval(timer);
+
+      const target = document.getElementById("visitor-count");
+      target.textContent = "";
+
+      window.goatcounter.visit_count({
+        append: "#visitor-count"
+      });
+    }
+  }, 100);
+
+  setTimeout(function () {
+    clearInterval(timer);
+  }, 10000);
+})();
+</script>
+  
 </body>
 </html>
